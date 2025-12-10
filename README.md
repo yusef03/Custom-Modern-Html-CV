@@ -21,13 +21,13 @@ Designed to bypass standard Word templates and offer full control over layout, t
 
 ## 📸 Screenshots
 
-_(Hier kannst du später einen Screenshot einfügen, wie der CV aussieht)_
+coming soon...
 
 ## 📦 How to use
 
 1.  **Clone the repo:**
     ```bash
-    git clone [https://github.com/yusef03/html-cv-template.git](https://github.com/yusef03/html-cv-template.git)
+    git clone [https://github.com/yusef03/Custom-Modern-Html-CV.git](https://github.com/yusef03/Custom-Modern-Html-CV.git)
     ```
 2.  **Edit Data:**
     Open `index.html` and fill in your personal information.
