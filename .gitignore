@@ -1,5 +1,6 @@
 # Ignoriere meine privaten Dateien
 *_private.html
+*_private.css
 *.pdf
 profile.jpg
 
