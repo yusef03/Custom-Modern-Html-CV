@@ -1,0 +1,8 @@
+# Ignoriere meine privaten Dateien
+*_private.html
+*.pdf
+profile.jpg
+
+# Systemdateien ignorieren
+.DS_Store
+Thumbs.db

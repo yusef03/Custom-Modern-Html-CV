@@ -1,0 +1,518 @@
+/* --- GRUNDLAGEN & FARBEN --- */
+:root {
+  /* Background Palette (Anthrazit/Dark Grey) */
+  --bg-page: #121212;
+  --bg-glass-dark: rgba(20, 20, 20, 0.85); /* Sidebar */
+  --bg-glass-light: rgba(255, 255, 255, 0.03); /* Main Content */
+
+  /* Akzentfarbe: Champagne Gold (Edel, nicht gelb) */
+  --accent: #c5a059;
+  --accent-dim: rgba(197, 160, 89, 0.2);
+
+  /* Textfarben */
+  --text-white: #ffffff;
+  --text-grey: #b0b0b0;
+  --text-dark: #1a1a1a;
+
+  /* Borders */
+  --border-glass: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-page);
+  font-family: "Inter", sans-serif; /* Clean Text */
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Outfit", sans-serif; /* Modern Headlines */
+}
+
+/* --- HINTERGRUND EFFEKTE (Der Trick für Glass Look) --- */
+.bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.15), transparent);
+  top: -100px;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
+  bottom: 0;
+  right: -50px;
+}
+
+/* --- A4 CONTAINER --- */
+.page-wrapper {
+  width: 210mm;
+  min-height: 297mm;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  background: #1a1a1a; /* Fallback */
+  position: relative;
+  /* Ein feines Rauschen für Textur */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.glass-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  /* Das ist das echte Glas */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* --- SIDEBAR (Links) --- */
+.sidebar {
+  width: 32%;
+  background: var(--bg-glass-dark);
+  padding: 35px 25px;
+  border-right: 1px solid var(--border-glass);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Profil Bild & Header */
+.profile-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.img-frame {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 15px;
+  padding: 4px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+}
+
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(20%); /* Bisschen cooler Look */
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  color: var(--text-white);
+}
+
+.role {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.focus-badge {
+  display: inline-block;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-glass),
+    transparent
+  );
+  margin: 20px 0;
+}
+
+/* Persönliche Daten (JETZT SICHTBAR) */
+.personal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Zwei Spalten */
+  gap: 15px 5px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item .label {
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.detail-item .value {
+  font-size: 12px;
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+/* Kontakt Liste */
+.contact-section h3,
+.skills-section h3,
+.languages-section h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--text-grey);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.contact-section ul {
+  list-style: none;
+}
+
+.contact-section li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #ddd;
+}
+
+.contact-section i {
+  color: var(--accent);
+  width: 16px;
+  text-align: center;
+}
+
+.contact-section a {
+  color: #ddd;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-section a:hover {
+  color: var(--accent);
+}
+
+/* Skills Bars */
+.skill-row {
+  margin-bottom: 12px;
+}
+
+.skill-row span {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #eee;
+}
+
+.bar-bg {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-dim);
+}
+
+/* Languages */
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #eee;
+}
+
+.lang-lvl {
+  color: var(--accent);
+  font-size: 11px;
+}
+
+/* --- MAIN CONTENT (Rechts) --- */
+.main-content {
+  width: 68%;
+  padding: 40px;
+  background: var(--bg-glass-light);
+}
+
+.intro-box {
+  margin-bottom: 35px;
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+}
+
+.intro-box h2 {
+  font-size: 16px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.intro-box p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Timeline Style */
+.section-title {
+  font-size: 18px;
+  color: var(--text-white);
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-glass);
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title i {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 10px;
+}
+
+.timeline-item {
+  display: flex; /* Side by Side: Date left, Content right */
+  gap: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Die Timeline Linie */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 88px; /* Position der Linie */
+  top: 5px;
+  bottom: -35px;
+  width: 1px;
+  background: var(--border-glass);
+}
+.timeline-item:last-child::before {
+  display: none;
+}
+
+/* Der Timeline Punkt */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 85px; /* Auf der Linie */
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.timeline-date {
+  width: 80px; /* Feste Breite für Datum */
+  text-align: right;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-content h3 {
+  font-size: 15px;
+  color: var(--text-white);
+  margin-bottom: 3px;
+}
+
+.company {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.timeline-content ul {
+  list-style: none;
+}
+
+.timeline-content li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+  font-size: 12.5px;
+  color: #bfbfbf;
+  line-height: 1.4;
+}
+
+.timeline-content li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 14px;
+  top: -1px;
+}
+
+/* Interessen Tags */
+.interests-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-glass);
+}
+
+.int-tag {
+  font-size: 11px;
+  color: #888;
+  border: 1px solid var(--border-glass);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* --- INTELLIGENTER DRUCK-FIX (KEINE SCHWARZEN BALKEN) --- */
+@media print {
+  /* 1. Papier-Setup ohne Ränder */
+  @page {
+    margin: 0;
+    size: A4;
+  }
+
+  /* 2. Container füllt das Blatt komplett aus (Keine Skalierung des Containers!) */
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a !important; /* Gleiche Farbe wie Wrapper */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    overflow: hidden;
+  }
+
+  .page-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: none;
+    background: #1a1a1a !important;
+    /* WICHTIG: Kein Zoom hier, damit keine Ränder entstehen! */
+  }
+
+  /* 3. INHALT KOMPRIMIEREN (Hier sparen wir den Platz) */
+
+  /* Schrift minimal kleiner */
+  body {
+    font-size: 10px;
+  }
+
+  /* Padding der Hauptbereiche verringern */
+  .sidebar {
+    padding: 20px 15px !important; /* Weniger Rand in der Leiste */
+    gap: 10px !important; /* Elemente rücken enger zusammen */
+  }
+
+  .main-content {
+    padding: 20px 25px !important; /* Weniger Rand im Hauptteil */
+  }
+
+  /* Abstände zwischen den Jobs verkleinern */
+  .timeline-item {
+    margin-bottom: 8px !important; /* Zieht die Liste drastisch zusammen */
+  }
+
+  /* Intro-Box kleiner */
+  .intro-box {
+    margin-bottom: 15px !important;
+    padding-left: 10px !important;
+  }
+
+  /* Profilbild etwas kleiner ziehen */
+  .img-frame {
+    width: 90px !important;
+    height: 90px !important;
+    margin-bottom: 5px !important;
+  }
+  .profile-header {
+    margin-bottom: 10px !important;
+  }
+
+  /* Überschriften enger */
+  .section-title {
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+  }
+
+  .timeline-content h3 {
+    margin-bottom: 1px !important;
+  }
+
+  /* Interessen-Footer nach oben ziehen */
+  .interests-box {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+  }
+
+  /* Hintergrund-Bubbles ausblenden */
+  .bg-shape {
+    display: none;
+  }
+}
+
+.dev-signature {
+  margin-top: auto; /* Schiebt es ganz nach unten */
+  padding-top: 15px;
+  font-size: 9px;
+  color: #444; /* Sehr dezent */
+  text-align: center;
+  border-top: 1px solid #222;
+  font-family: "Courier New", monospace; /* Code-Schriftart */
+}
