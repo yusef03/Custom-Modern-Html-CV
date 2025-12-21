@@ -1,11 +1,20 @@
-/* --- CONFIGURATION --- */
+/**
+ * @author dev yusef03
+ * @project HTML-CV-Engine
+ * @description Master Stylesheet with Print-Optimization & Glassmorphism UI
+ * @version 1.0.0 (Production)
+ */
+
+/* =========================================
+   [1.0] CONFIGURATION & VARIABLES
+   ========================================= */
 :root {
-  /* Color Scheme */
+  /* Theme: Dark Mode Palette */
   --bg-page: #121212;
   --bg-glass-dark: rgba(20, 20, 20, 0.85);
   --bg-glass-light: rgba(255, 255, 255, 0.03);
 
-  /* Branding */
+  /* Branding: Champagne Gold */
   --accent: #c5a059;
   --accent-dim: rgba(197, 160, 89, 0.2);
 
@@ -14,11 +23,13 @@
   --text-grey: #b0b0b0;
   --text-dark: #1a1a1a;
 
-  /* UI Elements */
+  /* Borders & Utilities */
   --border-glass: rgba(255, 255, 255, 0.08);
 }
 
-/* --- RESET & GLOBAL --- */
+/* =========================================
+   [2.0] GLOBAL RESET & TYPOGRAPHY
+   ========================================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -42,7 +53,9 @@ h3 {
   font-family: "Outfit", sans-serif;
 }
 
-/* --- VISUAL FX (GLASSMORPHISM) --- */
+/* =========================================
+   [3.0] BACKGROUND ASSETS (GLASS FX)
+   ========================================= */
 .bg-shape {
   position: fixed;
   border-radius: 50%;
@@ -67,14 +80,16 @@ h3 {
   right: -50px;
 }
 
-/* --- A4 PAGE LAYOUT --- */
+/* =========================================
+   [4.0] A4 LAYOUT CONTAINER
+   ========================================= */
 .page-wrapper {
   width: 210mm;
   min-height: 297mm;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
   background: #1a1a1a;
   position: relative;
-  /* Noise Texture Overlay */
+  /* Noise Texture for Digital View */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
@@ -86,7 +101,9 @@ h3 {
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* --- SIDEBAR --- */
+/* =========================================
+   [5.0] SIDEBAR COMPONENT
+   ========================================= */
 .sidebar {
   width: 32%;
   background: var(--bg-glass-dark);
@@ -96,7 +113,7 @@ h3 {
   flex-direction: column;
 }
 
-/* --- PROFILE SECTION --- */
+/* Profile Header */
 .profile-header {
   text-align: center;
   margin-bottom: 25px;
@@ -146,7 +163,7 @@ h3 {
   border: 1px solid rgba(197, 160, 89, 0.3);
 }
 
-/* --- UI COMPONENTS --- */
+/* Details & Contact */
 .divider {
   height: 1px;
   background: linear-gradient(
@@ -182,7 +199,6 @@ h3 {
   font-weight: 500;
 }
 
-/* --- LISTS & CONTACT --- */
 .contact-section h3,
 .skills-section h3,
 .languages-section h3 {
@@ -196,7 +212,6 @@ h3 {
 .contact-section ul {
   list-style: none;
 }
-
 .contact-section li {
   display: flex;
   align-items: center;
@@ -205,28 +220,24 @@ h3 {
   font-size: 12px;
   color: #ddd;
 }
-
 .contact-section i {
   color: var(--accent);
   width: 16px;
   text-align: center;
 }
-
 .contact-section a {
   color: #ddd;
   text-decoration: none;
   transition: 0.3s;
 }
-
 .contact-section a:hover {
   color: var(--accent);
 }
 
-/* --- SKILL BARS --- */
+/* Skills & Languages */
 .skill-row {
   margin-bottom: 12px;
 }
-
 .skill-row span {
   display: block;
   font-size: 12px;
@@ -254,13 +265,14 @@ h3 {
   margin-bottom: 8px;
   color: #eee;
 }
-
 .lang-lvl {
   color: var(--accent);
   font-size: 11px;
 }
 
-/* --- MAIN CONTENT AREA --- */
+/* =========================================
+   [6.0] MAIN CONTENT AREA
+   ========================================= */
 .main-content {
   width: 68%;
   padding: 40px;
@@ -286,7 +298,7 @@ h3 {
   color: #ccc;
 }
 
-/* --- TIMELINE COMPONENT --- */
+/* Timeline Logic */
 .section-title {
   font-size: 18px;
   color: var(--text-white);
@@ -297,7 +309,6 @@ h3 {
   align-items: center;
   gap: 10px;
 }
-
 .section-title i {
   color: var(--accent);
   font-size: 16px;
@@ -315,7 +326,7 @@ h3 {
   position: relative;
 }
 
-/* Connector Line */
+/* Vertical Guide Line */
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -329,7 +340,7 @@ h3 {
   display: none;
 }
 
-/* Timeline Node */
+/* Connector Dot */
 .timeline-item::after {
   content: "";
   position: absolute;
@@ -355,7 +366,6 @@ h3 {
 .timeline-content {
   flex: 1;
 }
-
 .timeline-content h3 {
   font-size: 15px;
   color: var(--text-white);
@@ -368,7 +378,6 @@ h3 {
   font-style: italic;
   margin-bottom: 8px;
 }
-
 .desc {
   font-size: 13px;
   color: #ccc;
@@ -379,7 +388,6 @@ h3 {
 .timeline-content ul {
   list-style: none;
 }
-
 .timeline-content li {
   position: relative;
   padding-left: 14px;
@@ -388,7 +396,6 @@ h3 {
   color: #bfbfbf;
   line-height: 1.4;
 }
-
 .timeline-content li::before {
   content: "›";
   position: absolute;
@@ -399,7 +406,6 @@ h3 {
   top: -1px;
 }
 
-/* --- FOOTER TAGS --- */
 .interests-box {
   display: flex;
   gap: 10px;
@@ -416,37 +422,63 @@ h3 {
   border-radius: 20px;
 }
 
-/* --- PRINT ENGINE (A4 OPTIMIZATION) --- */
+/* =========================================
+   [7.0] PRINT ENGINE (VECTOR OPTIMIZATION)
+   ========================================= */
 @media print {
-  /* Reset Browser Defaults */
+  /* [7.1] Force A4 Standards */
   @page {
     margin: 0;
     size: A4;
   }
 
-  /* Force Full Canvas */
+  /* [7.2] High-Performance Reset (Disable Bitmap Rasterization) */
   html,
   body {
     width: 210mm;
     height: 297mm;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a !important;
+    background-color: #121212 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     overflow: hidden;
   }
 
-  /* Prevent Scale Distortion */
+  /* [7.3] Asset Optimization (Remove Noise/Blur) */
+  .bg-shape,
+  .page-wrapper::before,
   .page-wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border: none;
+    background-image: none !important;
     background: #1a1a1a !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    zoom: 1; /* Keep native scale */
   }
 
-  /* Layout Compression for Single Page Fit */
+  .glass-container {
+    backdrop-filter: none !important;
+    background: none !important;
+  }
+
+  /* [7.4] Render Fix: Mobile PDF Artifacts (Yellow Dots) */
+  .timeline-item::after {
+    box-shadow: none !important; /* Prevents box rendering on mobile */
+    border: 1px solid #c5a059 !important;
+    background: #c5a059 !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .bar-fill {
+    box-shadow: none !important;
+  }
+
+  /* [7.5] Layout Compression */
   body {
     font-size: 10px;
   }
@@ -454,16 +486,17 @@ h3 {
   .sidebar {
     padding: 20px 15px !important;
     gap: 10px !important;
+    background-color: #161616 !important;
   }
 
   .main-content {
     padding: 20px 25px !important;
+    background-color: #1a1a1a !important;
   }
 
   .timeline-item {
     margin-bottom: 8px !important;
   }
-
   .intro-box {
     margin-bottom: 15px !important;
     padding-left: 10px !important;
@@ -473,38 +506,25 @@ h3 {
     width: 90px !important;
     height: 90px !important;
     margin-bottom: 5px !important;
-  }
-
-  .profile-header {
-    margin-bottom: 10px !important;
+    box-shadow: none !important;
+    border: 2px solid #c5a059 !important;
   }
 
   .section-title {
     margin-bottom: 8px !important;
     font-size: 13px !important;
   }
-
   .timeline-content h3 {
     margin-bottom: 1px !important;
   }
-
   .interests-box {
     margin-top: 10px !important;
     padding-top: 10px !important;
   }
 
-  .bg-shape {
-    display: none;
+  /* [7.6] Dev Signature */
+  .dev-signature {
+    color: #333 !important;
+    border-top: 1px solid #222 !important;
   }
-}
-
-/* --- DEVELOPER SIGNATURE --- */
-.dev-signature {
-  margin-top: auto;
-  padding-top: 15px;
-  font-size: 9px;
-  color: #444;
-  text-align: center;
-  border-top: 1px solid #222;
-  font-family: "Courier New", monospace;
 }
